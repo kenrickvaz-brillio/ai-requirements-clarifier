@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
   Sparkles,
   FileText,
@@ -27,6 +27,7 @@ function App() {
   const [userStory, setUserStory] = useState(SAMPLE_USER_STORY);
   const [isLoading, setIsLoading] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = () => {
     setIsLoading(true);
@@ -40,6 +41,8 @@ function App() {
   };
 
   const handleRegenerate = () => {
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     handleGenerate();
   };
 
@@ -68,7 +71,7 @@ function App() {
       <main className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Left Panel - Input */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
             <div className="card">
               <div className="section-header">
                 <FileText className="text-primary-600" size={22} />
@@ -132,7 +135,7 @@ function App() {
           </div>
 
           {/* Right Panel - Results */}
-          <div className="space-y-6">
+          <div ref={resultsRef} className="space-y-6">
             {!hasGenerated && !isLoading && (
               <div className="card text-center py-16">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-100 to-indigo-100 rounded-full mb-4">
