@@ -2,6 +2,8 @@
 
 A beautiful, responsive frontend demo that transforms user stories into comprehensive technical specifications using static sample data.
 
+**[Live Demo](https://zealous-sky-02da3fd1e.6.azurestaticapps.net)**
+
 ![AI Requirements Clarifier](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-blue)
 
 ## ✨ Features
